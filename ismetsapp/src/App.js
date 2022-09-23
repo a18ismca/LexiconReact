@@ -1,14 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
-import './components/Ismet.jsx'
-import Ismet from './components/Ismet.jsx';
-import Form from './components/Form';
+import {Ismet} from './components/Ismet.js';
+import {Form} from './components/Form';
+import {List} from './components/List';
+
+import { useState } from 'react';
 
 function App() {
+
+  const [persons, updatepersons] = useState([]); 
+
+  const addPerson = (person) => {
+    updatepersons([...persons, person]);
+  };
+
+
+
   return (
+
+
     <div className='App'>
-      <Ismet></Ismet>
-      <Form></Form>
+      <Form addPerson={addPerson}></Form>
     </div>
     
   );
