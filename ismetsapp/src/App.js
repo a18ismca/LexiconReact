@@ -8,10 +8,13 @@ import { useState } from 'react';
 
 function App() {
 
-  const [persons, updatepersons] = useState([]); 
 
+  // här lagras alla personer som skapats
+  const [people, updatePeople] = useState([]);
+
+  // person innehåller attributen som används i List.js
   const addPerson = (person) => {
-    updatepersons([...persons, person]);
+    updatePeople([...people, person]);
   };
 
 
@@ -20,27 +23,18 @@ function App() {
 
 
     <div className='App'>
+      <header className='header'>
+        <h1>Ismets app</h1>
+      </header>
+
       <Form addPerson={addPerson}></Form>
+      <List people={people}></List>
+
     </div>
     
   );
 }
 
- /*<div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>*/
+ 
 
 export default App;

@@ -1,42 +1,59 @@
-export const List = ({persons}) => {
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
+export const List = ({people}) => {
   
   
-    const listOfPersons = (persons.length == 0) 
-      ? <p className="no-contacts">(No persons to display)</p>
-      : <ul>
-       
-        </ul>;
-     
-          return (
+ 
+ if(people.length == 0){
+    return (
+      <div>
+        <div>
+          <h2>List of people</h2>
+        </div>
+        <p>No results found</p>
+      </div>
+    )  
+ } 
+ else{
+        return (
+         
+            <div>
               <div>
-           <div className="contact-list-container">
-              <h2>Contact List</h2>
-              {listOfPersons}
-          </div>
-        <table class="table" style={{border: "1px"}}>
-          <thead>
-            <tr >
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>Age</th>
-                <th>Nationality</th>
-                <th>eMail</th>
-            </tr>
-          {persons.map((person,id) => (
-              
-            <tr key={id}>        
-              <th style={{fontWeight: "normal", fontSize: 25}}> {person.name}</th>
-              <th style={{fontWeight: "normal", fontSize: 25}}> {person.lastname}</th>
-              <th style={{fontWeight: "normal", fontSize: 25}}> {person.age}</th>
-              <th style={{fontWeight: "normal", fontSize: 25}}> {person.nationality}</th>
-              <th style={{fontWeight: "normal", fontSize: 25}}> {person.email}</th>     
-            </tr>
+                <h2>List of people</h2>
+            </div>
+          
+
             
-             ))}
-             
-           </thead>
-          </table>
-                
-              </div>
-            );
+      <table class="table">
+        <thead>
+          <tr >
+              <th>First name</th>
+              <th>Last name</th>
+              <th>Age</th>
+              <th>Nationality</th>
+              <th>E-Mail</th>
+          </tr>
+        {people.map((person,id) => (
+            
+          <tr key={id}>        
+            <th> {person.firstName}</th>
+            <th> {person.lastName}</th>
+            <th> {person.age}</th>
+            <th> {person.nationality}</th>
+            <th> {person.mailAddress}</th>     
+          </tr>
+          
+           )
+          )
         }
+           
+         </thead>
+        </table>
+
+              
+            </div>
+          );
+      }
+    }
+     
