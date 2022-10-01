@@ -1,8 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
-import {Ismet} from './components/Ismet.js';
 import {Form} from './components/Form';
 import {List} from './components/List';
+import {Home} from './components/Home';
+import {BrowserRouter, Route, Routes} from "react-router-dom"
 
 import { useState } from 'react';
 
@@ -23,12 +23,14 @@ function App() {
 
 
     <div className='App'>
-      <header className='header'>
-        <h1>Ismets app</h1>
-      </header>
-
-      <Form addPerson={addPerson}></Form>
-      <List people={people}></List>
+      <BrowserRouter>
+        <Routes>
+          <Route index path="/" element={<Home/>} />
+          <Route path="/form" element={<Form addPerson={addPerson} />} />
+          <Route path="/list" element={<List people={people} />} />
+        </Routes>
+      </BrowserRouter>
+      
 
     </div>
     
