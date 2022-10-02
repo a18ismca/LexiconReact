@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Navigation from './Navigation';
 
 
 export const List = ({people}) => {
@@ -7,7 +8,8 @@ export const List = ({people}) => {
  
  if(people.length == 0){
     return (
-      <div>
+      <div className='container'>
+        <Navigation/>
         <div>
           <h2>List of people</h2>
         </div>
@@ -18,7 +20,8 @@ export const List = ({people}) => {
  else{
         return (
          
-            <div>
+            <div className='container'>
+              <Navigation/>
               <div>
                 <h2>List of people</h2>
             </div>

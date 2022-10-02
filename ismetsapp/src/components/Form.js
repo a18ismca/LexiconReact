@@ -2,6 +2,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import React, {useState} from 'react';
 
+import Navigation from "./Navigation";
+
 // addPerson är en metod som skickas vidare till App.js
 export const Form = ({addPerson}) => {
 
@@ -28,12 +30,16 @@ const handleSubmit = (e) => {
 
 return(
 
-    <div className='form-container'>
+    
+    <div className='container'>
+     <Navigation/>
 
-        <form onSubmit={handleSubmit}>
-            <div>
+          <div>
                 <h3>Person form</h3>
             </div>
+       
+        <form onSubmit={handleSubmit}>
+          
 
          
 

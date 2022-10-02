@@ -24,11 +24,17 @@ function App() {
 
     <div className='App'>
       <BrowserRouter>
+
         <Routes>
+
           <Route index path="/" element={<Home/>} />
-          <Route path="/form" element={<Form addPerson={addPerson} />} />
-          <Route path="/list" element={<List people={people} />} />
+
+          <Route path="/add" element={<Form addPerson={addPerson} />} />
+
+          <Route path="/list" element={<List people={people}/>} />
+
         </Routes>
+
       </BrowserRouter>
       
 
