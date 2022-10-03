@@ -7,7 +7,7 @@ export const Login = () => {
 
 const { userLogin } = useContext(UserContext);
 
-const [username, setUsername] = useState();
+const [name, setUsername] = useState();
 
 const usernameOnChange = (e) => {
     setUsername(e.target.value);
@@ -26,13 +26,13 @@ const usernameOnChange = (e) => {
             </label>
 
             <input 
-                type={text} 
+                type='text' 
                 placeholder='Enter here!'
                 onChange={usernameOnChange}     
             />
 
             <div>
-                <Link to="home"><button onClick={() => userLogin(username)}>Login</button></Link>
+                <Link to="home"><button onClick={() => userLogin(name)}>Login</button></Link>
             </div>
             
 

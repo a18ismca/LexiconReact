@@ -4,18 +4,20 @@ export const UserContext = createContext({username: "", authorized: false});
 
 export const UserProvider = ({ children }) => {
 
-    // user is the name of the "data" that gets stored in the context
+    // user is the username of the "data" that gets stored in the context
 
     const [user, setUser] = useState({username: "", authorized: false});
 
 
-    // Login updates the user data with a name parameter. auth: true
+    // Login updates the user data with a username parameter. authorized: true
     const userLogin = (username) => {
 
         setUser((user) => ({
             username: username,
             authorized: true,
+            
         })
+
         );
 
     };

@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Navigation from './Navigation';
+import {Navigation} from './Navigation';
 import {Link} from "react-router-dom";
 import React from 'react';
 

@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import React, {useState} from 'react';
 
-import Navigation from "./Navigation";
+import {Navigation} from "./Navigation";
 
 // addPerson är en metod som skickas vidare till App.js
 export const Form = ({addPerson}) => {

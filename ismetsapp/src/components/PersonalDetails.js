@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Link} from "react-router-dom";
-import Navigation from './Navigation';
+import {Navigation} from './Navigation';
 import React from "react";
 
 export const PersonalDetails = () => {
