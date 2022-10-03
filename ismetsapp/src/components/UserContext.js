@@ -1,19 +1,40 @@
-import React from "react";
+import React, {useState, createContext} from "react";
 
-export const UserContext = React.createContext({username: "", authorized: false});
+export const UserContext = createContext({username: "", authorized: false});
 
-export const UserProvider = () => {
+export const UserProvider = ({ children }) => {
 
-    const [user, setUser] = React.useState({username: "", authorized: false});
+    // user is the name of the "data" that gets stored in the context
 
+    const [user, setUser] = useState({username: "", authorized: false});
+
+
+    // Login updates the user data with a name parameter. auth: true
     const userLogin = (username) => {
 
         setUser((user) => ({
             username: username,
-            authorized: true
+            authorized: true,
         })
-        )
+        );
 
-    }
+    };
+
+    const userLogout = () => {
+
+        setUser((user) => ({
+            username: "",
+            authorized: false,
+        }));
+    
+    };
+
+    return (
+        <UserContext.Provider value={{user, userLogin, userLogout}}>
+            {children}
+        </UserContext.Provider>
+    )
+
+
 
 }

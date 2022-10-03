@@ -1,8 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Link} from "react-router-dom";
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
+import { UserContext } from './UserContext';
 
 export const Login = () => {
+
+const { userLogin } = useContext(UserContext);
 
 const [username, setUsername] = useState();
 
@@ -18,7 +21,6 @@ const usernameOnChange = (e) => {
             <header>
                 <h4>Welcome to login page!</h4>
             </header>
-            <form>
             <label>
                 Username:
             </label>
@@ -30,9 +32,8 @@ const usernameOnChange = (e) => {
             />
 
             <div>
-                <Link to="home"><button type='submit'>Login</button></Link>
+                <Link to="home"><button onClick={() => userLogin(username)}>Login</button></Link>
             </div>
-            </form>
             
 
         </div>
