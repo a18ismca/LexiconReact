@@ -26,6 +26,8 @@ const handleSubmit = (e) => {
     e.preventDefault();
     addPerson(personAttributes);
     setPersonAttributes({ firstName: "", lastName: "", age: "", nationality: "", mailAddress: ""});
+
+   
 }
 
 return(
@@ -97,7 +99,9 @@ return(
                 <button>Add person!</button>
             </div>
 
+
         </form>
+        
     </div>
 
 )

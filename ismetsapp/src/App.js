@@ -2,6 +2,7 @@ import './App.css';
 import {Form} from './components/Form';
 import {List} from './components/List';
 import {Home} from './components/Home';
+import {PersonalDetails} from './components/PersonalDetails';
 import {BrowserRouter, Route, Routes} from "react-router-dom"
 
 import { useState } from 'react';
@@ -32,6 +33,8 @@ function App() {
           <Route path="/add" element={<Form addPerson={addPerson} />} />
 
           <Route path="/list" element={<List people={people}/>} />
+
+          <Route path="/personaldetails" element={<PersonalDetails />} />
 
         </Routes>
 

@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navigation from './Navigation';
-
+import {Link} from "react-router-dom";
+import React from 'react';
 
 export const List = ({people}) => {
   
@@ -44,7 +45,8 @@ export const List = ({people}) => {
             <th> {person.lastName}</th>
             <th> {person.age}</th>
             <th> {person.nationality}</th>
-            <th> {person.mailAddress}</th>     
+            <th> {person.mailAddress}</th>
+            <th><Link to="/personaldetails">Details</Link></th>
           </tr>
           
            )
