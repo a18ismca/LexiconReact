@@ -13,6 +13,10 @@ const usernameOnChange = (e) => {
     setUsername(e.target.value);
 }
 
+const usernameSubmit = (e) => {
+    e.preventDefault();
+}
+
 
 
     return(
@@ -21,22 +25,31 @@ const usernameOnChange = (e) => {
             <header>
                 <h4>Welcome to login page!</h4>
             </header>
-            <label>
-                Username:
-            </label>
 
+            <form onSubmit={usernameSubmit}>
+            <div>
+                <label>
+                    Username
+                </label>
+            </div>
+    
+
+            
             <input 
                 type='text' 
                 placeholder='Enter here!'
-                onChange={usernameOnChange}     
+                onChange={usernameOnChange}
+                required 
             />
-
-            <div>
-                <Link to="home"><button onClick={() => userLogin(name)}>Login</button></Link>
-            </div>
             
 
-        </div>
+            
+                <Link to="home"><button onClick={() => userLogin(name)}>Login</button></Link>
+                
+            
+                </form>
+            </div>
+        
 
     )
 

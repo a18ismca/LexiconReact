@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import React, {useState} from 'react';
 
-import {Navigation} from "./Navigation";
+import {NavigationBar} from "./NavigationBar";
 
 // addPerson är en metod som skickas vidare till App.js
 export const Form = ({addPerson}) => {
@@ -34,7 +34,7 @@ return(
 
     
     <div className='container'>
-     <Navigation/>
+     <NavigationBar/>
 
           <div>
                 <h3>Person form</h3>

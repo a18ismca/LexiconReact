@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Navigation} from './Navigation';
+import {NavigationBar} from './NavigationBar';
 import {Link} from "react-router-dom";
 import React from 'react';
 
@@ -10,7 +10,7 @@ export const List = ({people}) => {
  if(people.length == 0){
     return (
       <div className='container'>
-        <Navigation/>
+        <NavigationBar/>
         <div>
           <h2>List of people</h2>
         </div>
@@ -22,7 +22,7 @@ export const List = ({people}) => {
         return (
          
             <div className='container'>
-              <Navigation/>
+              <NavigationBar/>
               <div>
                 <h2>List of people</h2>
             </div>
