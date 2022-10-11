@@ -16,9 +16,8 @@ function App() {
   const [peopleList, setPeopleList] = useState([]);
 
   useEffect(() => {
-    axios.get(`https://localhost:7015/api/ReactController`)
+    axios.get(`https://localhost:7015/api/React/people/`)
     .then(response => setPeopleList(response.data));
-    console.log(peopleList);
   }, []);
 
   const { user } = useContext(UserContext);
@@ -32,6 +31,8 @@ function App() {
   const addPerson = (person) => {
     updatePeople([...people, person]);
   };
+
+  
 
 
 
@@ -49,7 +50,7 @@ function App() {
 
           <Route path="/add" element={<Form addPerson={addPerson} />} />
 
-          <Route path="/list" element={<List people={people}/>} />
+          <Route path="/list" element={<List people={peopleList}/>} />
 
           <Route path="/personaldetails" element={<PersonalDetails />} />
 
