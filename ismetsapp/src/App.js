@@ -13,6 +13,8 @@ import { UserContext } from './components/UserContext';
 function App() {
 
 
+// Fetch all people
+
   const [peopleList, setPeopleList] = useState([]);
 
   useEffect(() => {
@@ -20,19 +22,47 @@ function App() {
     .then(response => setPeopleList(response.data));
   }, []);
 
+  // Fetch all cities
+
+  const [cityList, setCityList] = useState([]);
+
+  useEffect(() => {
+    axios.get(`https://localhost:7015/api/React/cities`)
+    .then(response => setCityList(response.data))
+  }, []);
+
+
+const [countryList, setCountryList] = useState([]);
+
+useEffect(() => {
+  axios.get(`https://localhost:7015/api/React/countries`)
+  .then(response => setCountryList(response.data))
+}, []);
+
+
+
+
+  const [personListByID, setPersonListByID] = useState([]);
+
+  useEffect(() => {
+    axios.get(`https://localhost:7015/api/React/people/{Id}`)
+    .then(response => setPersonListByID(response.data));
+  }, []);
+
   const { user } = useContext(UserContext);
 
+
+
+  
   // här lagras alla personer som skapats
-  const [people, updatePeople] = useState([]);
-
-
+  //const [people, updatePeople] = useState([]);
 
   // person innehåller attributen som används i List.js
   const addPerson = (person) => {
-    updatePeople([...people, person]);
+    setPeopleList([...peopleList, person]);
   };
 
-  
+
 
 
 
@@ -48,11 +78,11 @@ function App() {
 
           <Route path="/home" element={<Home />} />
 
-          <Route path="/add" element={<Form addPerson={addPerson} />} />
+          <Route path="/add" element={<Form addPerson={addPerson} cities={cityList} countries={countryList}/>} />
 
           <Route path="/list" element={<List people={peopleList}/>} />
 
-          <Route path="/personaldetails" element={<PersonalDetails />} />
+          <Route path="/personaldetails" element={<PersonalDetails specificPerson={personListByID}/>} />
 
         </Routes>
 
@@ -64,7 +94,5 @@ function App() {
     
   );
 }
-
- 
 
 export default App;

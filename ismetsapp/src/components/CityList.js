@@ -4,28 +4,16 @@ import {Link} from "react-router-dom";
 import React from 'react';
 import axios from 'axios';
 
-export const List = ({people}) => {
+export const CityList = ({cities}) => {
   
- 
- 
- if(people.length == 0){
-    return (
-      <div className='container'>
-        <NavigationBar/>
-        <div>
-          <h2>List of people</h2>
-        </div>
-        <p>No results found</p>
-      </div>
-    )  
- } 
- else{
+
+
         return (
          
             <div className='container'>
               <NavigationBar/>
               <div>
-                <h2>List of people</h2>
+                <h2>List of cities</h2>
             </div>
           
 
@@ -35,17 +23,17 @@ export const List = ({people}) => {
           
           <tr>
               <th>Name</th>
-              <th>Phone number</th>
-              <th>City</th>
-              <th>Languages</th>
+              <th>Country</th>
+              <th>CountryID</th>
+              <th>Inhabitants</th>
           </tr>
-        {people.map((person, id) => (
+        {cities.map((city, id) => (
             
           <tr key={id}>       
-            <th>{person.name}</th>
-            <th> {person.phoneNumber}</th>
-            <th> {person.cityId}</th>
-            <th> {person.languages}</th>
+            <th>{city.cityId}</th>
+            <th> {city.name}</th>
+            <th> {city.country}</th>
+            <th> {city.countryId}</th>
             <th><Link to="/personaldetails">Details</Link></th>
           </tr>
           
@@ -60,5 +48,5 @@ export const List = ({people}) => {
             </div>
           );
       }
-    }
+    
      
