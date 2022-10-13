@@ -60,6 +60,8 @@ useEffect(() => {
   // person innehåller attributen som används i List.js
   const addPerson = (person) => {
     setPeopleList([...peopleList, person]);
+    axios.post(``)
+
   };
 
 

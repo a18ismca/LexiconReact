@@ -72,6 +72,17 @@ return(
             <label>Residence</label>
             </div>
             <div>
+            <select 
+                
+                    onChange={handleChange}
+                    required
+                >
+
+                    {countries.map((country, id) => {
+                        return <option key={id}>{country.name}</option>
+                    })}
+                </select>
+
                 <select 
                     name='cityId' 
                     value={personAttributes.cityId} 
