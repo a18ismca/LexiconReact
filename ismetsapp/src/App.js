@@ -81,7 +81,7 @@ useEffect(() => {
 
           <Route path="/list" element={<List people={peopleList}/>} />
 
-          <Route path="/personaldetails/1" element={<PersonalDetails  />} />
+          <Route path="/personaldetails/1/" element={<PersonalDetails  />} />
 
         </Routes>
 

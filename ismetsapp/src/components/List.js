@@ -39,6 +39,7 @@ const {person} = useParams();
               <th>Name</th>
               <th>Phone number</th>
               <th>City</th>
+              <th>Country</th>
               <th>Languages</th>
           </tr>
         {people.map((person) => (
@@ -48,8 +49,9 @@ const {person} = useParams();
             <th>{person.name}</th>
             <th> {person.phoneNumber}</th>
             <th> {person.city.name}</th>
+            <th> {person.city.country.name}</th>
             <th> {person.languages}</th>
-            <th><Link to={"/personaldetails/" + person.id}>Details</Link></th>
+            <th><Link to="/personaldetails/1/">Details</Link></th>
           </tr>
           
            )

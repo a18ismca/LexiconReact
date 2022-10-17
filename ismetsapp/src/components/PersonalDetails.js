@@ -13,7 +13,10 @@ const PersonalDetails = () => {
     axios.get(`https://localhost:7015/api/React/personaldetails/1`)
     .then(response => setDetails(response.data));
     console.log(details);
+
   }, []);
+
+
 
 
 
