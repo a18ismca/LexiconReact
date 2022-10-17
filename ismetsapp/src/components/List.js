@@ -3,10 +3,12 @@ import {NavigationBar} from './NavigationBar';
 import {Link} from "react-router-dom";
 import React from 'react';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
 export const List = ({people}) => {
   
- 
+const {person} = useParams();
+
  
  if(people.length == 0){
     return (
@@ -39,14 +41,15 @@ export const List = ({people}) => {
               <th>City</th>
               <th>Languages</th>
           </tr>
-        {people.map((person, id) => (
+        {people.map((person) => (
             
-          <tr key={id}>       
+          <tr key={person.id}>    
+             
             <th>{person.name}</th>
             <th> {person.phoneNumber}</th>
-            <th> {person.cityId}</th>
+            <th> {person.city.name}</th>
             <th> {person.languages}</th>
-            <th><Link to="/personaldetails">Details</Link></th>
+            <th><Link to={"/personaldetails/" + person.id}>Details</Link></th>
           </tr>
           
            )
@@ -60,5 +63,6 @@ export const List = ({people}) => {
             </div>
           );
       }
+
     }
      
