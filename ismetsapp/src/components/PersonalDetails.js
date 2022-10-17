@@ -5,54 +5,58 @@ import { useContext, useEffect } from "react";
 import React, {useState} from "react";
 import axios from 'axios';
 
-export const PersonalDetails = ({person}) => {
+const PersonalDetails = () => {
 
-console.log(person)
-    return(
+  const [details, setDetails] = useState([]);
+
+  useEffect(() => {
+    axios.get(`https://localhost:7015/api/React/personaldetails/1`)
+    .then(response => setDetails(response.data));
+    console.log(details);
+  }, []);
+
+
+
+
+  return (
+         
+    <div className='container'>
+      <NavigationBar/>
       <div>
-      <div className='container'>
-                    <NavigationBar/>
-                    <div>
-                      <h2>Personal details</h2>
-                  </div>
-                
-      
-                  
-            <table class="table">
-              <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Phone number</th>
-                    <th>City</th>
-                    <th>Languages</th>
-                </tr>
-                  
-                
-            
-            <tr>    
-               
-              <th>{person.name}</th>
-              <th> {person.phoneNumber}</th>
-              <th> {person.cityId}</th>
-              <th> {person.languages}</th>
-            </tr>
-            
-             
-            
-          
-                
-                 
-                 
-            </thead>
+        <h2>Personal details</h2>
+    </div>
+  
 
-              </table>
-      
-              <Link to="/list">Return to list</Link>
+    
+<table className="table">
+<thead>
+  
+  <tr>
+      <th>Name</th>
+      <th>Phone number</th>
+      <th>City</th>
+      <th>Languages</th>
+  </tr>
 
-                  </div>
-              </div>
-      
+  <tr>    
+     
+    <th>{details.name}</th>
+    <th> {details.phoneNumber}</th>
+    <th> {details.cityId}</th>
+    <th> {details.languages}</th>
+    
+  </tr>
+  
+   
+  
 
-        
-    )
+   
+ </thead>
+</table>
+
+      
+    </div>
+  );
 }
+
+export default PersonalDetails;

@@ -3,7 +3,7 @@ import {Form} from './components/Form';
 import {List} from './components/List';
 import {Home} from './components/Home';
 import {Login} from './components/Login';
-import {PersonalDetails} from './components/PersonalDetails';
+import PersonalDetails from './components/PersonalDetails';
 import {BrowserRouter, Route, Routes} from "react-router-dom"
 import { UserProvider } from './components/UserContext';
 import React, { useState, useContext, useEffect } from 'react';
@@ -13,10 +13,7 @@ import axios from "axios";
 import { UserContext } from './components/UserContext';
 
 function App() {
-  const id = useParams();
-
-  const {person} = useParams();
-
+  
 
 // Fetch all people
 
@@ -46,13 +43,6 @@ useEffect(() => {
 
 
 
-  const [details, setDetails] = useState([]);
-
-  useEffect(() => {
-    axios.get(`https://localhost:7015/api/React/personaldetails/1`)
-    .then(response => setDetails(response.data));
-    console.log(details)
-  }, []);
 
 
 
@@ -91,7 +81,7 @@ useEffect(() => {
 
           <Route path="/list" element={<List people={peopleList}/>} />
 
-          <Route path="/personaldetails/1" element={<PersonalDetails person={details} />} />
+          <Route path="/personaldetails/1" element={<PersonalDetails  />} />
 
         </Routes>
 
