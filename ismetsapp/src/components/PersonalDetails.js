@@ -8,7 +8,6 @@ const PersonalDetails = () => {
 
   const [details, setDetails] = useState();
 
-
   const {id} = useParams();
 
   useEffect(() => {
@@ -50,11 +49,13 @@ console.log(details)
               <th> {person.phoneNumber}</th>
               <th> {person.city.name}</th>
               <th> {person.city.country.name}</th>
+
               {person.languages.map((language) => (
-                <th key={language.languageId}>
-                  <td>{language.name}</td>
-                  </th>
+                <tr key={language.languageId}>
+                  {language.name}
+                  </tr>
               ))}
+              
              
 
             </tr>
@@ -63,9 +64,11 @@ console.log(details)
             )
           }
 
+          
+
 <button className='btn btn-link'><Link to="/list">Return to list</Link></button>
   
-   
+  
   
 
    
