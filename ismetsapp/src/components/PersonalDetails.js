@@ -4,23 +4,24 @@ import {NavigationBar} from './NavigationBar';
 import { useContext, useEffect } from "react";
 import React, {useState} from "react";
 import axios from 'axios';
-
 const PersonalDetails = () => {
 
-  const [details, setDetails] = useState([]);
+  const [details, setDetails] = useState();
+
+
+  const {id} = useParams();
 
   useEffect(() => {
-    axios.get(`https://localhost:7015/api/React/personaldetails/1`)
+    axios.get(`https://localhost:7015/api/React/personaldetails/${id}`)
     .then(response => setDetails(response.data));
-    console.log(details);
+   
 
-  }, []);
+  });
 
-
-
-
+console.log(details)
 
 
+  if(details)
   return (
          
     <div className='container'>
@@ -38,17 +39,31 @@ const PersonalDetails = () => {
       <th>Name</th>
       <th>Phone number</th>
       <th>City</th>
+      <th>Country</th>
       <th>Languages</th>
   </tr>
 
-  <tr>    
-     
-    <th>{details.name}</th>
-    <th> {details.phoneNumber}</th>
-    <th> {details.cityId}</th>
-    <th> {details.languages}</th>
-    
-  </tr>
+  {details.map((person) => (
+            
+            <tr key={person.id}>    
+              <th> {person.name}</th>
+              <th> {person.phoneNumber}</th>
+              <th> {person.city.name}</th>
+              <th> {person.city.country.name}</th>
+              {person.languages.map((language) => (
+                <th key={language.languageId}>
+                  <td>{language.name}</td>
+                  </th>
+              ))}
+             
+
+            </tr>
+            
+             )
+            )
+          }
+
+<button className='btn btn-link'><Link to="/list">Return to list</Link></button>
   
    
   

@@ -7,8 +7,8 @@ import { useParams } from 'react-router-dom';
 
 export const List = ({people}) => {
   
-const {person} = useParams();
 
+  const { id } = useParams();
  
  if(people.length == 0){
     return (
@@ -34,24 +34,17 @@ const {person} = useParams();
             
       <table class="table">
         <thead>
-          
           <tr>
               <th>Name</th>
-              <th>Phone number</th>
-              <th>City</th>
-              <th>Country</th>
-              <th>Languages</th>
           </tr>
+
         {people.map((person) => (
             
           <tr key={person.id}>    
              
             <th>{person.name}</th>
-            <th> {person.phoneNumber}</th>
-            <th> {person.city.name}</th>
-            <th> {person.city.country.name}</th>
-            <th> {person.languages}</th>
-            <th><Link to="/personaldetails/1/">Details</Link></th>
+            <th><Link to={`/personaldetails/${person.id}`}>Details</Link></th>
+
           </tr>
           
            )
