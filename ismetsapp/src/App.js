@@ -3,7 +3,7 @@ import {Form} from './components/Form';
 import {List} from './components/List';
 import {Home} from './components/Home';
 import {Login} from './components/Login';
-import PersonalDetails from './components/PersonalDetails';
+import {PersonalDetails} from './components/PersonalDetails';
 import {BrowserRouter, Route, Routes} from "react-router-dom"
 import { UserProvider } from './components/UserContext';
 import React, { useState, useContext, useEffect } from 'react';
@@ -56,8 +56,9 @@ useEffect(() => {
 
   // person innehåller attributen som används i List.js
   const addPerson = (person) => {
-    setPeopleList([...peopleList, person]);
-    axios.post(``)
+    //setPeopleList([...peopleList, person]);
+    axios.post(`https://localhost:7015/api/React/addPerson`)
+    .then(res => console.log(res.data));
 
   };
 

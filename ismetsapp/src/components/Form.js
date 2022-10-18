@@ -11,9 +11,9 @@ export const Form = ({addPerson, cities, countries}) => {
 const [personAttributes, setPersonAttributes] = useState({
     name: "",
     phoneNumber: "",
-    city: null,
+    city: {},
     cityId: "",
-    languages: [],
+    languages: [{}],
 });
 
 // här sätter vi formatet som finns ovan m.h.a. setPersonAttributes
@@ -27,7 +27,7 @@ const handleChange = (e) => {
 const handleSubmit = (e) => {
     e.preventDefault();
     addPerson(personAttributes);
-    setPersonAttributes({ name: "", phoneNumber: "", city: null, cityId: "", languages: []});
+    setPersonAttributes({ name: "", phoneNumber: "", city: {}, cityId: "", languages: [{}]});
 
    
 }
@@ -67,8 +67,13 @@ return(
                     required
                 />
             </div>
-            <div>
+
+
+           
             
+
+
+            <div>
             <label>Residence</label>
             </div>
             <div>
@@ -81,8 +86,10 @@ return(
                     required
                 >
 
-                    {cities.map((city, id) => {
-                        return <option key={id}>{city.cityId}</option>
+                    {cities.map((city) => {
+                  
+                        return <option key={city.cityId}>{city.name}</option>
+                        
                     })}
                 </select>
             </div>
