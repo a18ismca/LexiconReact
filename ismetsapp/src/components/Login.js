@@ -27,28 +27,29 @@ const usernameSubmit = (e) => {
             </header>
 
             <form onSubmit={usernameSubmit}>
-            <div>
-                <label>
-                    Username
-                </label>
-            </div>
-    
+                <div>
+                    <label>
+                        Username
+                    </label>
+                </div>
+        
 
-            
-            <input 
-                type='text' 
-                placeholder='Enter here!'
-                onChange={usernameOnChange}
-                required 
-            />
-            
+                <div>
+                    <input 
+                        type='text' 
+                        placeholder='Enter here!'
+                        onChange={usernameOnChange}
+                        required 
+                    />
+                </div>
+                
 
-            
-                <Link to="home"><button onClick={() => userLogin(name)}>Login</button></Link>
+                
+                    <Link to="home"><button onClick={() => userLogin(name)}>Login</button></Link>
                 
             
-                </form>
-            </div>
+            </form>
+        </div>
         
 
     )

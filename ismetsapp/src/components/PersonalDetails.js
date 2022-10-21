@@ -17,13 +17,30 @@ export const PersonalDetails = () => {
   });
 
 const Delit = () => {
+  try{
   axios.delete(`https://localhost:7015/api/React/delit/${id}`);
-  return (
-    <div>
-      <h6>Delete successful.</h6>
-    </div>
-  )
+  return(<p>Delete successful.</p>)
+  } 
+  catch (err)
+  {
+    if(err.response)
+    {
+      return(<p className='statement'>{err.response}</p>)
+    } 
+    else if(err.request)
+    {
+      return(<p className='statement'>{err.request}</p>)
+    } 
+    else{
+      return(<p className='statement'>Unknown error.</p>)
+    }
+
+  }
+ 
+  
 }
+
+
 
 console.log(details)
 
@@ -78,11 +95,13 @@ console.log(details)
   
   
 <button className='btn btn-danger' onClick={Delit}>Delete</button>
-
+<div className='statement'></div>
 
    
  </thead>
 </table>
+
+
 
       
     </div>
@@ -90,7 +109,11 @@ console.log(details)
 }
 else{
   return(
-    <div>
+    <div className='container'>
+      <NavigationBar/>
+      <div>
+        <h2>Personal details</h2>
+    </div>
       <h6>No results found.</h6>
       <button className='btn btn-link'><Link to="/list">Return to list</Link></button>
     </div>
