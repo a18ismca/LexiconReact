@@ -1,9 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Link} from "react-router-dom";
-import React, {useState, useContext} from 'react';
+import { Link } from "react-router-dom";
+import React, { useState, useContext } from 'react';
 import { UserContext } from './UserContext';
 
 export const Login = () => {
+
+// Use context and set username.
 
 const { userLogin } = useContext(UserContext);
 
@@ -26,7 +28,7 @@ const usernameSubmit = (e) => {
                 <h4>Welcome to login page!</h4>
             </header>
 
-            <form onSubmit={usernameSubmit}>
+            <form onSubmit = { usernameSubmit } >
                 <div>
                     <label>
                         Username

@@ -1,10 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Link, useParams, Redirect} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {NavigationBar} from './NavigationBar';
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 import React, {useState} from "react";
 import axios from 'axios';
 export const Edit = () => {
+
+// This function does not work properly and is therefore unused in this project.
 
   const [details, setDetails] = useState();
 
