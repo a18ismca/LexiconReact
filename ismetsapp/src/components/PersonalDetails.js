@@ -6,37 +6,18 @@ import React, { useState } from "react";
 import axios from 'axios';
 export const PersonalDetails = () => {
 
-  const [details, setDetails] = useState();
 
-  const {id} = useParams();
 
-  useEffect(() => {
-    axios.get(`https://localhost:7015/api/React/personaldetails/${id}`)
-    .then(response => setDetails(response.data))
-    .catch(function(error) 
-    {
-      if(error.response) 
-      {
 
-        console.log(error.response.data);
-        console.log(error.response.status);
-        console.log(error.response.headers);
-      } 
+const [details, setDetails] = useState();
 
-      else if(error.request)
-      {
-        console.log(error.request);
-      } 
+const {id} = useParams();
 
-      else
-      {
-        console.log('Error', error.message);
-      }
-    })
-     
-    
-   
-  });
+useEffect(() => {
+  axios.get(`https://localhost:7015/api/React/personaldetails/${id}`)
+  .then(response => setDetails(response.data));
+ 
+}, []);
 
 const Delit = () => {
   
@@ -69,7 +50,7 @@ const Delit = () => {
 
 
 
-console.log(details)
+
 
 
   if(details != null){
